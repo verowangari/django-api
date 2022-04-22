@@ -6,7 +6,8 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
 	<style type="text/css">
 		body{
 		  background: rgb(54,217,182);
@@ -82,13 +83,22 @@
         <li class="nav-item active">
           <a class="nav-link" href="#form">Add Task <span class="sr-only"></span></a>
         </li>
-        
+        <li class="nav-item"><a class="nav-link" href="#" >
+          <i class="fas fa-light fa-user"></i>
+            Profile -{{ request.user }}
+          </a></li>
        
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search task">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
+      <li><a href="{% url 'signup' %}" class="button btn-outline">
+        Sign Up
+      </a> <br></li>
+    <li><a href="{% url 'logout' %}" class="button btn-light">
+        Log Out
+      </a></li>
     </div>
   </nav>
   
@@ -135,7 +145,7 @@
 		        var cookies = document.cookie.split(';');
 		        for (var i = 0; i < cookies.length; i++) {
 		            var cookie = cookies[i].trim();
-		            // Does this cookie string begin with the name we want?
+		            //  begin with the name we want?
 		            if (cookie.substring(0, name.length + 1) === (name + '=')) {
 		                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
 		                break;
